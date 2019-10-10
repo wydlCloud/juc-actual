@@ -12,9 +12,7 @@ import java.util.List;
 public class Demo {
 
     public static void main(String[] args) {
-        List<Integer> li=new ArrayList<>();
-        li.add(1);
-       /* li.add(2);*/
-        System.out.println(li);
+      int[] arr=new int[10];
+        System.out.println(arr[5]+1);
     }
 }

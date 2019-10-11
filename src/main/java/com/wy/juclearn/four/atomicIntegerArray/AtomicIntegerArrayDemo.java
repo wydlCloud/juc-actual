@@ -1,9 +1,5 @@
 package com.wy.juclearn.four.atomicIntegerArray;
 
-import com.wy.juclearn.util.JsonUtil;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
 /**

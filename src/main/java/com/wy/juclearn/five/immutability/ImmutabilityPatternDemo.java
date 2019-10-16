@@ -62,4 +62,8 @@ public final class ImmutabilityPatternDemo {
     public double getPrice() {
         return price;
     }
+
+    public static void main(String[] args) {
+        System.out.println("ImmutabilityPatternDemo");
+    }
 }

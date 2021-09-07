@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.wy</groupId>
-	<artifactId>juclearn</artifactId>
+	<artifactId>juc-actual</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>juclearn</name>
+	<name>juc-actual</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

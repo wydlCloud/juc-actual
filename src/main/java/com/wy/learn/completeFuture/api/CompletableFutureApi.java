@@ -18,30 +18,69 @@ public class CompletableFutureApi {
 //        m3();
 //        m4();
 //        m5();
-        m6();
-        m7();
-
+//        m6();
+//        m7();
+        m8();
     }
 
 
-    public static void m7(){
+    public static void m8() {
+        CompletableFuture<Integer> thenCombine = CompletableFuture.supplyAsync(() -> {
+            try {
+                System.out.println("111111");
+                TimeUnit.SECONDS.sleep(1L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return 1;
+        }).thenCombine(CompletableFuture.supplyAsync(() -> {
+            try {
+                System.out.println("222222");
+                TimeUnit.SECONDS.sleep(1L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return 2;
+        }), (p1, p2) -> {
+            System.out.println("3333333");
+            return p1 + p2;
+        }).thenCombine(CompletableFuture.supplyAsync(() -> {
+            try {
+                System.out.println("4444444");
+                TimeUnit.SECONDS.sleep(1L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return 3;
+        }), (p1, p2) -> {
+            System.out.println("5555555");
+            return p1 + p2;
+        });
+        System.out.println("主线程结束");
+        System.out.println(thenCombine.join());
+    }
+
+    public static void m7() {
         CompletableFuture.supplyAsync(() -> {
             return 1;
         }).thenApply(f -> {
-            return f+2;
+            return f + 2;
         }).thenApply(f -> {
-            return f+3;
+            return f + 3;
         }).thenAccept(r -> System.out.println(r));
 
 
-        System.out.println(CompletableFuture.supplyAsync(() -> "resultA").thenRun(() -> {}).join());
+        System.out.println(CompletableFuture.supplyAsync(() -> "resultA").thenRun(() -> {
+        }).join());
 
 
-        System.out.println(CompletableFuture.supplyAsync(() -> "resultA").thenAccept(resultA -> {}).join());
+        System.out.println(CompletableFuture.supplyAsync(() -> "resultA").thenAccept(resultA -> {
+        }).join());
 
 
         System.out.println(CompletableFuture.supplyAsync(() -> "resultA").thenApply(resultA -> resultA + " resultB").join());
     }
+
     /**
      * 对计算速度进行选用 也就是or的聚合，只要有一个线程完成，就可以完成下面的任务，也就是先执行完的先触发
      * applyToEither
@@ -51,12 +90,12 @@ public class CompletableFutureApi {
         CompletableFuture<Integer> integerCompletableFuture = CompletableFuture.supplyAsync(() -> {
             try {
                 TimeUnit.SECONDS.sleep(10L);
-                System.out.println("t1"+"异步线程执行结束");
+                System.out.println("t1" + "异步线程执行结束");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             return 1;
-        },threadPoolExecutor).applyToEither(CompletableFuture.supplyAsync(() -> {
+        }, threadPoolExecutor).applyToEither(CompletableFuture.supplyAsync(() -> {
             try {
                 TimeUnit.SECONDS.sleep(3L);
                 System.out.println("t2异步线程执行结束");
@@ -97,7 +136,7 @@ public class CompletableFutureApi {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 20, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue<>(50), Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
         Integer join = CompletableFuture.supplyAsync(() -> {
             return 1;
-        },threadPoolExecutor).thenApply(s -> {
+        }, threadPoolExecutor).thenApply(s -> {
             return s + 2;
         }).whenComplete((v, e) -> {
             if (e == null) {

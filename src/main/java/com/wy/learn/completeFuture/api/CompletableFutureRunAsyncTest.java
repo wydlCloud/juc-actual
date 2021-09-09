@@ -1,4 +1,4 @@
-package com.wy.learn.completeFuture;
+package com.wy.learn.completeFuture.api;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * @Description TODO
  */
 
-public class CompletableFutureTest {
+public class CompletableFutureRunAsyncTest {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         CompletableFuture future = CompletableFuture.runAsync(() -> {
             System.out.println(Thread.currentThread().getName() + " \t " + "-----come in");

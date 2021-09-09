@@ -1,4 +1,4 @@
-package com.wy.learn.completeFuture;
+package com.wy.learn.completeFuture.api;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;

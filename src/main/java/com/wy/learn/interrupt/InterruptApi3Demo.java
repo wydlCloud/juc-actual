@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
  * @company
  * @Classname InterruptApi3Demo
  * @Description
+ * code02后手案例(重要。操蛋)
  */
 
 public class InterruptApi3Demo {

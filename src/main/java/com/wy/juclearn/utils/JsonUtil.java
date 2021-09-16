@@ -1,4 +1,4 @@
-package com.wy.juclearn.util;
+package com.wy.juclearn.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
@@ -15,13 +15,13 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created on 2019/3/20.
+ * Created on 2018/6/06.
  * Title: Simple
  * Description: Json工具类
  * Copyright: Copyright(c) 2018
  * Company:
  *
- * @author wy
+ * @author xunli
  */
 public class JsonUtil {
 

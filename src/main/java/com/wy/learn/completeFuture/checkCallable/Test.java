@@ -1,5 +1,6 @@
 package com.wy.learn.completeFuture.checkCallable;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 

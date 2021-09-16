@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author wy
  * @company
  * @Classname ReentrantLockAwaitAndSigalDemo
- * @Description lock await() signal()要结合使用  不然会出现和synchronized一样的问题  也要保证顺序
+ * @Description lock  unlock  await() signal()要结合使用  不然会出现和synchronized一样的问题  也要保证顺序  也必须在其中使用
  */
 
 public class ReentrantLockAwaitAndSignalDemo {
